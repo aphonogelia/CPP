@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:10 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/11 18:08:11 by htharrau         ###   ########.fr       */
+/*   Updated: 2025/09/26 16:50:00 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap {
+	protected:
+		static const unsigned int defaultHitPoints = 100;
+		static const unsigned int defaultEnergyPoints = 100;
+		static const unsigned int defaultAttackDamage = 30;
 
 	public:
 		FragTrap();
@@ -25,5 +29,7 @@ class FragTrap : virtual public ClapTrap {
 		~FragTrap();
 
 		void highFivesGuys() const;
-		
+		unsigned int getDefaultHitPoints() const { return defaultHitPoints; }
+		unsigned int getDefaultEnergyPoints() const { return defaultEnergyPoints; }
+		unsigned int getDefaultAttackDamage() const { return defaultAttackDamage; }
 } ;

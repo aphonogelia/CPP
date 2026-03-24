@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:10 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/11 18:08:15 by htharrau         ###   ########.fr       */
+/*   Updated: 2025/09/26 16:49:49 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap {
+	protected:
+		static const unsigned int defaultHitPoints = 100;
+		static const unsigned int defaultEnergyPoints = 50;
+		static const unsigned int defaultAttackDamage = 20;
 
 	public:
 		ScavTrap();
@@ -25,5 +29,8 @@ class ScavTrap : virtual public ClapTrap {
 
 		void attack(const std::string& target);
 		void guardGate();
+		unsigned int getDefaultHitPoints() const { return defaultHitPoints; }
+		unsigned int getDefaultEnergyPoints() const { return defaultEnergyPoints; }
+		unsigned int getDefaultAttackDamage() const { return defaultAttackDamage; }
 
 } ;

@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:41 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/09 16:15:34 by htharrau         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:13:51 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 class Point {
 
 	private:
-		Fixed x; 
-		Fixed y;
+		Fixed const x; 
+		Fixed const y;
 
 	public:
 		Point();

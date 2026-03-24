@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 18:06:18 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/09 16:15:49 by htharrau         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:39:13 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #define HEIGHT 20
 
 
-bool bsp(Point const a, Point const b, Point const c, Point const point);
+bool bsp(Point const &a, Point const &b, Point const &c, Point const &point);
 
 int main()
 {

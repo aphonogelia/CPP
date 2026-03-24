@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:39 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/09 16:22:42 by htharrau         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:38:05 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Line.hpp"
 
 
-bool bsp(Point const a, Point const b, Point const c, Point const point)
+bool bsp(Point const &a, Point const &b, Point const &c, Point const &point)
 {
 
 	std::cout << "Triangle A(" << a.getX() << ", " << a.getY() 

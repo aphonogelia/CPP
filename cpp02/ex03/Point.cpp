@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:42 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/09 16:15:29 by htharrau         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:43:57 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,7 @@ bool Point::operator!=(const Point& other) const {
 	return (this->x != other.x || this->y != other.y);
 }
 
-Point& Point::operator=(const Point& other) {
-	if (*this != other)
-	{
-		this->x = other.x;
-		this->y = other.y;
-	}
+Point& Point::operator=(const Point&) {
 	return (*this);
 }
 

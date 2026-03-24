@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:13 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/11 17:10:07 by htharrau         ###   ########.fr       */
+/*   Updated: 2025/09/26 16:49:16 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 /////////////////////////////
 
 ScavTrap::ScavTrap() : ClapTrap() {
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
+	this->hitPoints = defaultHitPoints;
+	this->energyPoints = defaultEnergyPoints;
+	this->attackDamage = defaultAttackDamage;
 	std::cout << "ScavTrap : Default constructor called." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
+	this->hitPoints = defaultHitPoints;
+	this->energyPoints = defaultEnergyPoints;
+	this->attackDamage = defaultAttackDamage;
 	std::cout << "ScavTrap : Parameterized constructor called." << std::endl;
 }
 

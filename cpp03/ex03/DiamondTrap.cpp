@@ -6,7 +6,7 @@
 /*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:31:44 by htharrau          #+#    #+#             */
-/*   Updated: 2025/05/11 18:25:08 by htharrau         ###   ########.fr       */
+/*   Updated: 2025/09/26 16:48:35 by htharrau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 /////////////////////////////
 
 DiamondTrap::DiamondTrap() : ClapTrap("temp_clap_name"), ScavTrap(), FragTrap(), name("temp") {
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::attackDamage;
+	this->hitPoints = FragTrap::getDefaultHitPoints();
+	this->energyPoints = ScavTrap::getDefaultEnergyPoints();
+	this->attackDamage = FragTrap::getDefaultAttackDamage();
 	std::cout << "DiamondTrap : Default constructor called." << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), name(name) {
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::attackDamage;
+	this->hitPoints = FragTrap::getDefaultHitPoints();
+	this->energyPoints = ScavTrap::getDefaultEnergyPoints();
+	this->attackDamage = FragTrap::getDefaultAttackDamage();
 	std::cout << "DiamondTrap : Parameterized constructor called." << std::endl;
 }
 
