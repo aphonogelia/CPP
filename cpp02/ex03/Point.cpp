@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:32:42 by htharrau          #+#    #+#             */
 /*   Updated: 2026/01/22 12:43:57 by htharrau         ###   ########.fr       */

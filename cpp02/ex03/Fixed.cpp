@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 17:01:18 by htharrau          #+#    #+#             */
 /*   Updated: 2025/05/09 16:24:36 by htharrau         ###   ########.fr       */

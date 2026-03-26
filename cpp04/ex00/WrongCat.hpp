@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:56:02 by htharrau          #+#    #+#             */
 /*   Updated: 2025/05/12 11:37:32 by htharrau         ###   ########.fr       */

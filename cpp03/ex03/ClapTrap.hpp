@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:40:36 by htharrau          #+#    #+#             */
 /*   Updated: 2025/05/11 15:02:05 by htharrau         ###   ########.fr       */

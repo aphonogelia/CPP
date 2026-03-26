@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   functions.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 15:10:44 by htharrau          #+#    #+#             */
 /*   Updated: 2025/06/07 17:10:27 by htharrau         ###   ########.fr       */

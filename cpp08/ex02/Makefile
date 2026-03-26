@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+         #
+#    By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/20 12:40:32 by htharrau          #+#    #+#              #
 #    Updated: 2026/03/25 20:52:19 by htharrau         ###   ########.fr        #

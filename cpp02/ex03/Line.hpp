@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   Line.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htharrau <htharrau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: htharrau <htharrau@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 18:22:12 by htharrau          #+#    #+#             */
 /*   Updated: 2025/05/09 15:56:07 by htharrau         ###   ########.fr       */
