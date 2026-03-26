@@ -1,6 +1,6 @@
 # 42 C++ Modules (CPP00 → CPP09)
 
-## 📌 Overview
+## 🎏 Overview
 This repository contains the 10 C++ modules from the **42 school curriculum**. The goal is to progressively master C++ fundamentals under the **C++98 standard**, moving from procedural C-style thinking to advanced Object-Oriented Programming (OOP).
 
 ---
@@ -14,7 +14,7 @@ This repository contains the 10 C++ modules from the **42 school curriculum**. T
 
 ---
 
-## 📝 Notes
+## 〽️ Notes
 * **Standard**: All projects follow the **C++98 standard** (42 requirement).
 * **Constraints**: No external libraries; focus on understanding fundamentals over modern shortcuts.
 * **Documentation**: Includes the documented learning process and solved challenges.
@@ -65,11 +65,11 @@ This repository contains the 10 C++ modules from the **42 school curriculum**. T
 
 ---
 
-## 🚀 Structure & Build
+## 👷‍♀️ Structure & Build
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repo.git](https://github.com/your-username/your-repo.git)
+    git clone git@github.com:aphonogelia/CPP.git
     ```
 
 2.  **Navigate to an exercise:**
