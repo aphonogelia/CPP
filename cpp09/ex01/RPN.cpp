@@ -12,50 +12,57 @@
 
 #include "RPN.hpp"
 
-
 bool evaluate(const std::string& input) {
     std::stack<long> _stack;
     std::istringstream iss(input);
     std::string token;
-    
-    while (iss >> token) {
 
+    while (iss >> token) {
         if (token.length() != 1 || !(std::isdigit(token[0]) || isOperator(token[0]))) {
             std::cerr << "[Error] Invalid token: " << token << std::endl;
             return false;
         }
-        
+
         char c = token[0];
-        
-        if (std::isdigit(c)) _stack.push(c - '0');
+
+        if (std::isdigit(c))
+            _stack.push(c - '0');
 
         else {
             if (_stack.size() < 2u) {
                 std::cerr << "[Error] Invalid RPN expression: " << c << std::endl;
-                return false; 
+                return false;
             }
-            long b = _stack.top(); _stack.pop();
-            long a = _stack.top(); _stack.pop();
+            long b = _stack.top();
+            _stack.pop();
+            long a = _stack.top();
+            _stack.pop();
             long result;
             switch (c) {
-                case '+': result = a + b; break;
-                case '-': result = a - b; break;
-                case '*': result = a * b; break;
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
                 case '/':
-                    if (b == 0)  {
-                        std::cerr  << "[Error] Division by zero: " << a << c << b << std::endl;
+                    if (b == 0) {
+                        std::cerr << "[Error] Division by zero: " << a << c << b << std::endl;
                         return false;
                     }
-                    result = a / b; 
-                break;
+                    result = a / b;
+                    break;
                 default:
                     std::cerr << "[Error] Invalid operator: " << c << std::endl;
                     return false;
             }
             _stack.push(result);
-        } 
+        }
     }
-    
+
     if (_stack.size() != 1) {
         std::cerr << "[Error] Invalid RPN expression" << std::endl;
         return false;
@@ -63,7 +70,5 @@ bool evaluate(const std::string& input) {
     std::cout << _stack.top() << std::endl;
     return true;
 }
-    
-bool isOperator(char a) {
-    return (a == '+' || a == '-' || a == '*' || a == '/');
-}
+
+bool isOperator(char a) { return (a == '+' || a == '-' || a == '*' || a == '/'); }

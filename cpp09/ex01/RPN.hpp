@@ -13,10 +13,9 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
 #include <stack>
 #include <string>
-#include <sstream>
-
 
 bool isOperator(char a);
 bool evaluate(const std::string& expression);
