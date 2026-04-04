@@ -12,18 +12,38 @@
 
 #include "PmergeMe.hpp"
 
+#define DEBUG 1
+
 
 PmergeMe::PmergeMe(const std::vector<int>& dataV, const std::deque<int>& dataD) : _dataVect(dataV), _dataDeq(dataD) {
 
     _n = _dataVect.size();
+    _nComp = 0;
     std::vector<int> toSlice = _dataVect;
     _expJacob = calcJacobsthal();
-    printVect(_expJacob, "Exp Jacohstahl");
-    _nComp = 0;
+#if DEBUG
+    printVect(_expJacob, "Exp Jacobsthal");
+#endif
+
 
     printVect(_dataVect, "Before");
     _sortedVect = sortAlgoV(toSlice);
+    // _sortedDeq = sortAlgoD(toSlice);
     printVect(_sortedVect, "Sorted");
+
+
+    struct timeval start, end;
+    gettimeofday(&start, NULL);
+    _sortedVect = sortAlgoV(toSlice);
+    gettimeofday(&end, NULL);
+
+    double vectTime = (end.tv_sec - start.tv_sec) * 1000000.0
+        + (end.tv_usec - start.tv_usec);
+
+    std::cout << "Time to process a range of " << _n
+        << " elements with std::vector : " << vectTime << " us" << std::endl;
+
+       std::cout << "Number of comparisons " << _nComp  << std::endl;     
 
 }
 
@@ -37,6 +57,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
         _dataVect = other._dataVect;
         _dataDeq = other._dataDeq;
         _sortedVect = other._sortedVect;
+        // _sortedDeq = other._sortedDeq;
     }
     return *this;
 }
@@ -68,7 +89,6 @@ std::vector<int> PmergeMe::sortAlgoV(std::vector<int> toSlice) {
             pairs.push_back(std::make_pair(toSlice[i], toSlice[i + 1]));
         else
             pairs.push_back(std::make_pair(toSlice[i + 1], toSlice[i]));
-
     }
     // comparisons increment for the pairs
     _nComp += toSlice.size() / 2;
@@ -78,26 +98,23 @@ std::vector<int> PmergeMe::sortAlgoV(std::vector<int> toSlice) {
     for (size_t i = 0; i < pairs.size(); i++)
         toSliceNext.push_back(pairs[i].first);
 
-    // debug print
+#if DEBUG
     printVect(toSliceNext, "Current winners");
     std::cout << "ncomp = " << _nComp << std::endl;
+#endif
 
     // recursive call on the winners
     toSliceNext = sortAlgoV(toSliceNext);
 
 
-
     ///////////////////////// INSERTING UP ////////////////////////
 
-
-    // debug print
+#if DEBUG
     printPairs(pairs);
-
-
-    // implement insertion with jacobstahl
+#endif
 
     // top in one vector, bottom in another
-    std::vector<int> orderedUpper = toSliceNext; // for indexes
+    std::vector<int> orderedUpper = toSliceNext;
     std::vector<int> unorderedLower;
     for (size_t i = 0; i < orderedUpper.size(); i++) {
         for (size_t j = 0; j < pairs.size(); j++) {
@@ -106,15 +123,17 @@ std::vector<int> PmergeMe::sortAlgoV(std::vector<int> toSlice) {
             }
         }
     }
+#if DEBUG
     printVect(orderedUpper, "orderedUpper");
     printVect(unorderedLower, "unorderedLower");
+#endif
 
-    // to insert : unorderedLower[i] in toSliceNext with upperBound = _expJacob[toSliceNext[i]]
+    // insert unorderedLower elements in jacobsthal order
     for (size_t k = 0; k < unorderedLower.size(); k++) {
-        int jacIndex = _expJacob[k];  // which lower element to insert 
+        int jacIndex = _expJacob[k];
         if (jacIndex >= (int)orderedUpper.size())
-            jacIndex = orderedUpper.size() - 1; // if jacobstahl index exceeds, take the last one as upperbound
-        int upperbound = orderedUpper[jacIndex];  // its winner/upperbound value
+            jacIndex = orderedUpper.size() - 1;
+        int upperbound = orderedUpper[jacIndex];
 
         // find upperbound's current position in toSliceNext (shifts after each insert)
         size_t upperboundPos = 0;
@@ -124,20 +143,20 @@ std::vector<int> PmergeMe::sortAlgoV(std::vector<int> toSlice) {
                 break;
             }
         }
-        std::cout << "upperboundPos = " << upperbound <<  ", unorderedLower[jacIndex] = "<<  unorderedLower[jacIndex] << std::endl;
+#if DEBUG
+        std::cout << "upperbound = " << upperbound << ", toInsert = " << unorderedLower[jacIndex] << std::endl;
+#endif
         binaryInsert(toSliceNext, upperboundPos, unorderedLower[jacIndex]);
     }
 
-
-
-    // if orphan: back in (after the pairs of the round) upperbound: last element
+    // if orphan: insert at end with full size as upper bound
+#if DEBUG
     std::cout << "putting back orphan = " << orphan << std::endl;
+#endif
     if (orphan != -1)
         binaryInsert(toSliceNext, toSliceNext.size(), orphan);
 
-    // returning the sorted vector!!
-    return(toSliceNext);
-
+    return toSliceNext;
 }
 
 void PmergeMe::binaryInsert(std::vector<int>& sorted, size_t upperBoundIndex, int toInsert) {
@@ -145,47 +164,69 @@ void PmergeMe::binaryInsert(std::vector<int>& sorted, size_t upperBoundIndex, in
     size_t right = upperBoundIndex;
 
     if (upperBoundIndex == 0) {
-        std::cout << "inserting " << toInsert << " at position " << upperBoundIndex << std::endl;
-        sorted.insert(sorted.begin() + upperBoundIndex, toInsert);
+#if DEBUG
+        std::cout << "inserting " << toInsert << " at position 0" << std::endl;
+#endif
+        sorted.insert(sorted.begin(), toInsert);
         return;
     }
 
+#if DEBUG
     std::cout << "\n--- binaryInsert ---" << std::endl;
     std::cout << "toInsert: " << toInsert << ", upperBound: " << upperBoundIndex << std::endl;
     std::cout << "searching in: ";
     for (size_t i = 0; i <= upperBoundIndex && i < sorted.size(); i++)
         std::cout << sorted[i] << " ";
     std::cout << std::endl;
+#endif
 
     while (left < right) {
         size_t mid = left + (right - left) / 2;
+#if DEBUG
         std::cout << "left=" << sorted[left] << " right index=" << right << " mid=" << sorted[mid] << std::endl;
+#endif
         if (toInsert < sorted[mid]) {
+#if DEBUG
             std::cout << toInsert << " < " << sorted[mid] << " -> go left" << std::endl;
+#endif
             right = mid;
         }
+        else if (toInsert == sorted[mid]) {
+#if DEBUG
+            std::cout << toInsert << " == " << sorted[mid] << " -> insert" << std::endl;
+#endif
+            left = mid + 1;
+            break;
+        }
         else {
-            std::cout << toInsert << " >= " << sorted[mid] << " -> go right" << std::endl;
+#if DEBUG
+            std::cout << toInsert << " > " << sorted[mid] << " -> go right" << std::endl;
+#endif
             left = mid + 1;
         }
         _nComp++;
     }
+#if DEBUG
     std::cout << "inserting " << toInsert << " at position " << left << std::endl;
+#endif
     sorted.insert(sorted.begin() + left, toInsert);
 
+#if DEBUG
     std::cout << "sorted after insert: ";
     for (size_t i = 0; i < sorted.size(); i++)
         std::cout << sorted[i] << " ";
     std::cout << "_nComp: " << _nComp << std::endl;
     std::cout << "\n--- end binaryInsert ---\n" << std::endl;
+#endif
 }
 
 
-
-// jacobstahl sequence expanded till _n / 2 
+// jacobsthal sequence expanded till _n / 2
 std::vector<int> PmergeMe::calcJacobsthal() const {
 
+#if DEBUG
     std::cout << "Calculating Jacobsthal numbers up to " << _n / 2 << std::endl;
+#endif
     const size_t maxInsert = _n / 2;
 
     std::vector<int> jacob;
@@ -196,10 +237,12 @@ std::vector<int> PmergeMe::calcJacobsthal() const {
         jacob.push_back(jacob[i - 1] + 2 * jacob[i - 2]);
     }
 
-    // jacobstahl expanded + removing 1 to have indexes ready to use
+    // jacobsthal expanded + subtracting 1 to have 0-based indexes
     std::vector<int> expanded;
 
+#if DEBUG
     std::cout << "jacob.size() " << jacob.size() << std::endl;
+#endif
     expanded.push_back(jacob[0] - 1);
     for (size_t i = 1; i < jacob.size(); i++) {
         for (int j = jacob[i]; j > jacob[i - 1]; j--) {
@@ -212,20 +255,15 @@ std::vector<int> PmergeMe::calcJacobsthal() const {
 }
 
 
-// print function for vector with a label
 void PmergeMe::printVect(const std::vector<int>& vec, const std::string& label) {
     std::cout << label << ": ";
-    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
+    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it)
         std::cout << *it << " ";
-    }
     std::cout << std::endl;
 }
 
-
-// debug function to print the pairs of the round
 void PmergeMe::printPairs(const std::vector<std::pair<int, int> >& pairs) const {
-    for (size_t i = 0; i < pairs.size(); i++) {
+    for (size_t i = 0; i < pairs.size(); i++)
         std::cout << "(" << pairs[i].first << ", " << pairs[i].second << ") ";
-    }
     std::cout << std::endl;
 }
