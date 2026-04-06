@@ -5,7 +5,7 @@ This repository contains the 10 C++ modules from the **42 school curriculum**. T
 
 ---
 
-## 🛠 Global Skills Acquired
+## 🪭 Global Skills Acquired
 * **OOP**: Encapsulation, inheritance, polymorphism, abstraction.
 * **Memory Management**: Stack vs heap, avoiding leaks, RAII.
 * **C++ Idioms**: Orthodox Canonical Form, operator overloading, exception safety.
@@ -14,14 +14,14 @@ This repository contains the 10 C++ modules from the **42 school curriculum**. T
 
 ---
 
-## 〽️ Notes
+## 〽✍🏾 Notes
 * **Standard**: All projects follow the **C++98 standard** (42 requirement).
 * **Constraints**: No external libraries; focus on understanding fundamentals over modern shortcuts.
 * **Documentation**: Includes the documented learning process and solved challenges.
 
 ---
 
-## 📂 Modules Breakdown
+## 🕵️‍♀️ Modules Breakdown
 
 ### [CPP00 — Basics of C++](https://github.com/aphonogelia/cpp-modules/tree/main/cpp00)
 * **Concepts**: Namespaces (`std`), I/O streams, classes, member functions, `this` pointer, static members.
@@ -66,7 +66,7 @@ This repository contains the 10 C++ modules from the **42 school curriculum**. T
 
 ---
 
-## 👷‍♀️ Structure & Build
+## 🦧 Structure & Build
 
 1.  **Clone the repository:**
     ```bash
