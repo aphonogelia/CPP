@@ -62,6 +62,7 @@ This repository contains the 10 C++ modules from the **42 school curriculum**. T
 ### [CPP09 — Advanced STL](https://github.com/aphonogelia/cpp-modules/tree/main/cpp09)
 * **Concepts**: `map`, `set`, data processing algorithms.
 * **Takeaway**: Combining STL tools for problem solving.
+* **Highlight**: [ex02 — PmergeMe](https://github.com/aphonogelia/cpp-modules/tree/main/cpp09/ex02) — implementation of the Ford-Johnson merge-insertion sort with detailed complexity analysis.
 
 ---
 
